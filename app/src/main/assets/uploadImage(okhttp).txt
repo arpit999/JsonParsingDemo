@@ -1,0 +1,107 @@
+/*public class AddProperty extends AsyncTask<String, Void, Void> {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+            progressBar.setVisibility(View.VISIBLE);
+        }
+
+        @Override
+        protected Void doInBackground(String... str) {
+
+            *//**
+             * Upload Image
+             *
+             * @param sourceImageFile
+             * @return
+             *//*
+
+            try {
+                File sourceFile = new File(str[9]);
+
+                Log.d("TAG", "File...::::" + sourceFile + " : " + sourceFile.exists());
+
+                final MediaType MEDIA_TYPE_PNG = MediaType.parse("image");
+
+                String filename = str[9].substring(str[9].lastIndexOf("/") + 1);
+
+                RequestBody requestBody = new MultipartBody.Builder()
+                        .setType(MultipartBody.FORM)
+                        .addFormDataPart("user_id", SharedPreferenceManager.getDefaults("userid", getApplicationContext()))
+                        .addFormDataPart("address", str[0])
+                        .addFormDataPart("unit_num", str[1])
+                        .addFormDataPart("city", str[2])
+                        .addFormDataPart("state", str[3])
+                        .addFormDataPart("zip_code", str[4])
+                        .addFormDataPart("name", str[5])
+                        .addFormDataPart("proparty_type_id", str[6])
+                        .addFormDataPart("move_month", str[7])
+                        .addFormDataPart("move_year", str[8])
+                        .addFormDataPart("image", filename, RequestBody.create(MEDIA_TYPE_PNG, sourceFile))
+                        .build();
+
+                Request request = new Request.Builder()
+                        .url("http://192.168.1.102/renter/index.php/api/proparty_add")
+                        .post(requestBody)
+                        .build();
+
+                OkHttpClient client = new OkHttpClient();
+                Response response = client.newCall(request).execute();
+
+                if (!response.isSuccessful()) throw new IOException("Unexpected code " + response);
+                {
+                    AddPropertyResponse = response.body().string();
+                    System.out.println(AddPropertyResponse);
+                    response.body().close();
+                }
+
+            } catch (UnknownHostException | UnsupportedEncodingException e) {
+                Log.e("TAG", "Error: " + e.getLocalizedMessage());
+            } catch (Exception e) {
+                Log.e("TAG", "Other Error: " + e.getLocalizedMessage());
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+
+            if (AddPropertyResponse != null) {
+
+                String status = null, message = null, email = null, userid = null, phone = null, firstname = null, lastname = null, password = null;
+
+                try {
+
+                    JSONObject jsonObject = new JSONObject(AddPropertyResponse);
+                    status = jsonObject.getString("status");
+                    message = jsonObject.getString("message");
+
+                } catch (JSONException e) {
+
+                    e.printStackTrace();
+                }
+
+                if (message.matches("success")) {
+
+                    progressBar.setVisibility(View.INVISIBLE);
+                    Toast.makeText(getApplicationContext(), "Add successfully", Toast.LENGTH_SHORT).show();
+
+                    startActivity(new Intent(getApplicationContext(), RoomSetupActivity.class));
+
+                } else {
+
+                    progressBar.setVisibility(View.INVISIBLE);
+                    Toast.makeText(getApplicationContext(), " " + message, Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(AddManuallyAddress2.this, RoomSetupActivity.class));
+                }
+
+            } else {
+                progressBar.setVisibility(View.INVISIBLE);
+                Toast.makeText(getApplicationContext(), "Something went wrong", Toast.LENGTH_SHORT).show();
+            }
+        }
+
+    }*/

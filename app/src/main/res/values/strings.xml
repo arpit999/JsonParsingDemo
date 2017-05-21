@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">JsonParsingDemo</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="okhttp">OKHTTP</string>
+    <string name="retrofit">RETROFIT</string>
+    <string name="gson">GSON</string>
+    <string name="simple">Simple</string>
+</resources>
